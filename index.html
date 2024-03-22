@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/7488918404.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./css/tailwind.css">
+    <title>Document</title>
+</head>
+<body class="h-screen bg-[#4070f4] grid place-content-center">
+    <section class="relative w-[400px] h-[420px] duration-150 bg-white p-7 rounded-xl overflow-hidden" id="form">
+        <main class="absolute w-[344px] left-7 duration-150" id="login_form">
+            <header class="header">Login</header>
+            <form action="#" class="flex flex-col gap-9 mt-8 w-full">
+                <div class="relative h-11">
+                    <input type="text" placeholder="enter your email" class="peer input-tag" required>
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                </div>
+               <div class="relative h-11">
+                    <input type="password" placeholder="Enter password" class="peer input-tag"  id="log_pw" required>
+                    <i class="fa-solid fa-lock input-icon "></i>
+                    <i class="fa-regular fa-eye-slash absolute text-[17px] top-[50%] text-zinc-400 translate-y-[-50%] peer-valid:text-[#4070f4] w-7 h-7 flex items-center justify-center rounded-full peer-valid:hover:bg-zinc-200 cursor-pointer right-0" id="eyeIcon"></i>
+                    <div class="flex items-center justify-between mt-3">
+                        <div class="flex items-center gap-2">
+                            <input type="checkbox" id="Remember" class="w-[12px] h-[12px]">
+                            <label for="Remember" class="select-none text-[14px] font-medium ">Remember me</label>
+                        </div>
+                        <a href="#" class="text-[14px] font-medium text-[#4070f4] hover:underline">Forgot password?</a>
+                    </div>
+                </div>
+              <input type="submit" value="Login" class="button">
+             <span class="text-[15px] font-medium text-center">Not a member? <a href="#" class="text-[#4070f4] hover:underline" id="signup">Signup now</a></span>
+            </form>
+        </main>
+
+        <main class="absolute w-[344px] left-[100%] duration-150" id="signup_form">
+            <header class="header">Signup</header>
+            <form action="#" class="flex flex-col gap-9 mt-8">
+                <div class="relative h-11">
+                    <input type="text" placeholder="Enter your name" class="peer input-tag" required>
+                    <i class="fa-regular fa-user input-icon"></i>
+                </div>
+                <div class="relative h-11">
+                    <input type="text" placeholder="Enter your name" class="peer input-tag" required>
+                    <i class="fa-regular fa-envelope input-icon"></i>
+                </div>
+                <div class="relative h-11">
+                    <input type="password" placeholder="Create paswsword" class="peer input-tag" required>
+                    <i class="fa-solid fa-lock-open input-icon"></i>
+                </div>
+                <div class="relative h-11">
+                    <input type="password" placeholder="Confirm password" class="peer input-tag" required>
+                    <i class="fa-solid fa-lock input-icon"></i>
+                    <i class="fa-regular fa-eye-slash absolute text-[17px] top-[50%] text-zinc-400 translate-y-[-50%] peer-focus:text-[#4070f4] peer-valid:text-[#4070f4] cursor-pointer right-0" id="eyeIcon"></i>
+                    <div class="flex items-center gap-2 mt-3">
+                        <input type="checkbox" id="checkbox" class="w-[12px] h-[12px]">
+                        <label for="checkbox" class="select-none text-[14px] font-medium">I accept all terms & condition</label>
+                    </div>
+                </div>
+              <input type="submit" value="Signup" class="button">
+             <span class="text-[15px] font-medium text-center">Already have anaccount? <a href="#" class="text-[#4070f4] hover:underline" id="login">Login now</a></span>
+            </form>
+        </main>
+
+
+    </section>
+
+    <script>
+        let form = document.querySelector('#form'),
+            login = document.querySelector('#login'),
+            signup = document.querySelector('#signup'),
+            loginForm = document.querySelector('#login_form'),
+            signupForm = document.querySelector('#signup_form');
+
+            signup.addEventListener('click', () => {
+
+                loginForm.classList.replace('left-7','left-[-100%]');
+                signupForm.classList.add('left-[7%]');
+                form.classList.add('h-[580px]');
+
+            });
+           
+            login.addEventListener('click', () => {
+
+                loginForm.classList.replace('left-[-100%]','left-7');
+                signupForm.classList.remove('left-[7%]');
+                form.classList.remove('h-[580px]');
+
+          });
+
+
+
+          let  logPw = document.querySelector('#log_pw'),
+               eyeIcon = document.querySelector('#eyeIcon');
+
+
+              eyeIcon.addEventListener('click', () => {
+
+                 if (logPw.type === 'password') {
+                     logPw.type = 'text' ;
+                     eyeIcon.classList.replace('fa-eye-slash','fa-eye');
+                 }
+                 else {
+                    logPw.type = 'password' ;
+                    eyeIcon.classList.replace('fa-eye','fa-eye-slash');
+                 }
+
+              })
+    </script>
+</body>
+</html>

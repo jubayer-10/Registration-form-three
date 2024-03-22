@@ -1,0 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.header {
+    @apply text-[30px] font-semibold relative after:absolute after:w-[30px] after:h-[3px] after:bottom-0 after:left-0 after:bg-[#4070f4] select-none ;
+}
+.input-tag {
+    @apply focus:border-[#4070f4] valid:border-[#4070f4] border-b-[2px] w-full h-full pl-7 placeholder:text-[17px] outline-none placeholder:font-normal text-[17px] font-medium ;
+}
+.input-icon {
+    @apply absolute text-[17px] top-[48%] text-zinc-400 translate-y-[-52%] left-0 peer-focus:text-[#4070f4] peer-valid:text-[#4070f4];
+}
+.button {
+    @apply  h-12 mt-6 bg-[#4070f4] outline-none rounded-lg text-white text-[21px] font-medium ;
+}
